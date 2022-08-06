@@ -7,11 +7,19 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class UpdateCommentRequest extends FormRequest
 {
-    public function authorize()
+    /**
+     * @return bool
+     */
+    public function authorize(): bool
     {
         return true;
     }
 
+    /**
+     * Validate request params.
+     *
+     * @return array
+     */
     public function rules()
     {
         return [
