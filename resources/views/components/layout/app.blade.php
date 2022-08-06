@@ -4,11 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    @if($title)
+    @isset($title)
         <title>{{ $title }}</title>
     @else
         <title>{{ config('app.name') }}</title>
-    @endif
+    @endisset
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>

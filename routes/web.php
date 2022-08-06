@@ -14,5 +14,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', fn() => redirect()->route('user.index'));
-Route::resource('/user', HomeController::class);
+Route::resource('/', HomeController::class)->only(['index']);
+Route::resource('/user', HomeController::class)->only(['show', 'update']);

@@ -3,7 +3,7 @@
         User Card - {{ $user->name }}
     </x-slot>
     <div class="row">
-        <div class="col-md-auto">
+        <div class="col-md-auto mb-3">
             <div class="card">
                 <div class="card-body">
                     <div class="row">
@@ -21,13 +21,14 @@
                 </div>
             </div>
         </div>
-
-        <div class="col-md-auto">
+        <div class="col-12"></div>
+        <div class="col-md-auto mb-3">
             <div class="card">
                 <div class="card-body">
                     <form method="POST" action="{{ route('user.update', ['user' => $user->id]) }}">
                         @method('PATCH')
                         @csrf
+                        <input name="id" value="{{ $user->id }}" hidden>
                         <div class="mb-3">
                             <label class="form-label">Password</label>
                             <input type="password" name="password" class="form-control">

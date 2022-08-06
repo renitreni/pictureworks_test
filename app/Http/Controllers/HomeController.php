@@ -24,8 +24,11 @@ class HomeController extends Controller
         return view('guest.details', compact('user'));
     }
 
-    public function update(UpdateCommentRequest $request, $id)
+    public function update(UpdateCommentRequest $request, User $user)
     {
-        dd($request->input());
+        $user->comment = $user->comment . $request->get('comment');
+        $user->save();
+
+        return redirect()->back();
     }
 }

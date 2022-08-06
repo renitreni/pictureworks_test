@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\PasswordMatched;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UpdateCommentRequest extends FormRequest
@@ -14,8 +15,9 @@ class UpdateCommentRequest extends FormRequest
     public function rules()
     {
         return [
-            "password" => "required",
-            "comment" => "required"
+            "id" => "required|exists:users",
+            "password" => ["required", new PasswordMatched()],
+            "comment" => "required",
         ];
     }
 }
